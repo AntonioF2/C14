@@ -1,66 +1,62 @@
-# Conversor de Medidas
+🌡️ Conversor de Medidas - Projeto CI/CD
+Aplicação de conversão de medidas (temperatura, comprimento e peso) desenvolvida com Streamlit. Este projeto foi estruturado para demonstrar um pipeline completo de Integração e Entrega Contínua (CI/CD), utilizando Docker, GitHub Actions e Deploy automatizado.
 
-Aplicação simples de conversão de medidas (temperatura, comprimento e peso) com interface Streamlit. Projetada como base para pipeline de CI/CD com testes automatizados.
+🚀 Tecnologias Utilizadas
+Linguagem: Python 3.11+
 
+Interface: Streamlit
 
-##  Como Executar
+Testes: Pytest
 
-1. Clone o repositório (ou navegue até a pasta do projeto)
+Containerização: Docker & Docker Hub
 
-2. Instale as dependências:
+Pipeline: GitHub Actions
 
+Hospedagem: Railway
+
+🛠️ Pipeline de CI/CD (GitHub Actions)
+O projeto conta com um Pipeline Unificado (pipeline.yml) que garante a qualidade do código antes de qualquer publicação. O fluxo consiste em:
+
+Job de Testes: Executa 20 testes unitários (10 de fluxo normal e 10 de exceção).
+
+Job de Build (Paralelo): Realiza o empacotamento da aplicação em um container Docker e faz o push para o Docker Hub. Também gera Artifacts (o pacote .zip da app e o relatório de testes).
+
+Job de Deploy: Realiza o deploy automático no Railway apenas se os jobs de Teste e Build passarem com sucesso (Branch main).
+
+Job de Notificação: Executa um script Python (enviar_notificacao.py) que consome variáveis de ambiente (Secrets) para informar o status final da operação.
+
+📊 Cobertura de Testes (20 Cenários)
+O projeto mantém 100% de sucesso nos testes validados via Pytest:
+
+✅ Fluxo Normal
+Conversões de Temperatura (C/F/K), Comprimento (m/pés, km/milhas) e Peso (kg/lb).
+
+❌ Fluxo de Exceção (Robustez)
+Tratamento de tipos inválidos (Strings, Booleanos, None).
+
+Validação de limites físicos (Zero absoluto, medidas negativas de distância/peso).
+
+🤖 Uso de Inteligência Artificial
+Conforme as diretrizes da disciplina, declaramos que este projeto contou com o auxílio de IA (Gemini/ChatGPT) para as seguintes atividades:
+
+Unificação de Workflows: Consolidação de múltiplos arquivos YAML em um único pipeline com execução paralela.
+
+Troubleshooting de DevOps: Resolução de erros de Pathing de importação no ambiente do GitHub Actions (ModuleNotFoundError) e configuração de Secrets.
+
+Scripts de Apoio: Estruturação do script de notificação via e-mail consumindo variáveis de ambiente.
+
+Resultado: O auxílio foi satisfatório, permitindo a implementação de boas práticas de infraestrutura que não seriam alcançadas apenas com o código base inicial.
+
+👥 Equipe
+Antônio Faria - 231
+Matheus Gazzola - 2178
+
+⚙️ Como Executar Localmente
+Instale as dependências:
 pip install -r requirements.txt
 
-### Executar a Aplicação
+Rode os testes:
+python -m pytest tests/
 
+Inicie a aplicação:
 streamlit run app.py
-
-A aplicação abrirá em `http://localhost:8501`
-
-### Executar os Testes
-
-pytest tests/
-
-Para gerar relatório detalhado:
-
-pytest tests/ -v --tb=short
-
-
-## 📊 Cobertura de Testes
-
-### Fluxo Normal (10 testes)
--  Celsius → Fahrenheit (inteiro)
--  Celsius → Fahrenheit (decimal)
--  Fahrenheit → Celsius (inteiro)
--  Metros → Pés (número inteiro)
--  Pés → Metros (número inteiro)
--  Quilômetros → Milhas (decimal)
--  Milhas → Quilômetros (inteiro)
--  Quilogramas → Libras (inteiro)
--  Celsius → Kelvin (inteiro)
--  Libras → Quilogramas (inteiro)
-
-### Fluxo de Exceção (10 testes)
--  String passada como entrada (TypeError)
--  Booleano passado como entrada (TypeError)
--  Temperatura abaixo do zero absoluto (ValueError)
--  Kelvin negativo (ValueError)
--  Metros negativo (ValueError)
--  String passada para quilômetros (TypeError)
--  Booleano passado para quilogramas (TypeError)
--  Peso negativo em libras (ValueError)
--  None passado para pés (TypeError)
--  Distância negativa em milhas (ValueError)
-
-
-
-## Tecnologias Utilizadas
-
-- **Python 3.8+**
-- **Streamlit 1.28.1** - Framework web para data science
-- **Pytest 7.4.3** - Framework de testes
-
-## 👥 Desenvolvido por
-
-Aluno: Antônio Faria
-matricula: 231
