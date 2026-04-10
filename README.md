@@ -12,7 +12,7 @@ Containerização: Docker & Docker Hub
 
 Pipeline: GitHub Actions
 
-Hospedagem: Railway
+Deploy: Railway
 
 🛠️ Pipeline de CI/CD (GitHub Actions)
 O projeto conta com um Pipeline Unificado (pipeline.yml) que garante a qualidade do código antes de qualquer publicação. O fluxo consiste em:
