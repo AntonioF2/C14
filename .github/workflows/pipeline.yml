@@ -82,7 +82,7 @@ jobs:
         run: npm install -g @railway/cli
 
       - name: Executar Deploy
-        run: railway up --service conversor-medidas --detach
+        run: railway up --detach
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
