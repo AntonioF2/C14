@@ -47,10 +47,6 @@ Scripts de Apoio: Estruturação do script de notificação via e-mail consumind
 
 Resultado: O auxílio foi satisfatório, permitindo a implementação de boas práticas de infraestrutura que não seriam alcançadas apenas com o código base inicial.
 
-👥 Equipe
-Antônio Faria - 231
-Matheus Gazzola - 2178
-
 ⚙️ Como Executar Localmente
 Instale as dependências:
 pip install -r requirements.txt
@@ -60,3 +56,7 @@ python -m pytest tests/
 
 Inicie a aplicação:
 streamlit run app.py
+
+👥 Equipe
+Antônio Faria - 231
+Matheus Gazzola - 2178
