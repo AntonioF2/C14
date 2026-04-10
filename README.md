@@ -57,6 +57,10 @@ python -m pytest tests/
 Inicie a aplicação:
 streamlit run app.py
 
+⚙️ Link do Deploy:
+
+c14-production.up.railway.app
+
 👥 Equipe
 Antônio Faria - 231
 Matheus Gazzola - 2178
